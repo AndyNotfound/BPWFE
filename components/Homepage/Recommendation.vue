@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
+import { useIsMobile } from '#imports';
+
+const { isMobile } = useIsMobile() 
 
 const props = defineProps<{ 
     recommendations: Array<{ 
@@ -10,15 +13,44 @@ const props = defineProps<{
     }> 
 }>();
 
-console.log('recommendation: ', props.recommendations)
 </script>
 
 <template>
     <div class="cards-container">
+        <!-- Mobile -->
         <div
             v-for="(item, index) in recommendations"
             :key="index"
-            class="card" 
+            class="card card-mobile" 
+            :style="{ 
+                backgroundImage: `url('${item.image}')`, 
+                width: '100%'
+            }"
+        >
+            <div class="price-tag">
+                {{ item.price }}
+            </div>
+            <div class="card-content">
+                <h2>
+                    {{ item.title }}
+                </h2>
+                <p>
+                    {{ item.desc }}
+                </p>
+                <custom-button 
+                    class="booking-btn"
+                    icon-position="left"
+                >
+                    <p>Booking Trip</p>
+                    <LucideMoveRight />
+                </custom-button>
+            </div>
+        </div>
+        <!-- Desktop -->
+        <div
+            v-for="(item, index) in recommendations"
+            :key="index"
+            class="card card-desktop" 
             :style="{ 
                 backgroundImage: `url('${item.image}')`, 
                 width: index === 0 ? '33.14%' : '22.96%'
@@ -34,121 +66,101 @@ console.log('recommendation: ', props.recommendations)
                 <p>
                     {{ item.desc }}
                 </p>
-                <button class="booking-btn">
-                    Booking Trip →
-                </button>
+                <custom-button 
+                    class="booking-btn"
+                    icon-position="left"
+                >
+                    <p>Booking Trip</p>
+                    <LucideMoveRight />
+                </custom-button>
             </div>
         </div>
-
-        <!-- <div class="card" style="background-image: url('canoe1.jpg');">
-            <div class="price-tag">Rp 1 Million</div>
-            <div class="card-content">
-                <h2>Canoe at the River Side of Bintan</h2>
-                <p>Experience stunning coral and fish ecosystem</p>
-                <button class="booking-btn">Booking Trip →</button>
-            </div>
-        </div>
-
-        <div class="card" style="background-image: url('canoe2.jpg');">
-            <div class="price-tag">Rp 1 Million</div>
-            <div class="card-content">
-                <h2>Canoe at the River Side of Bintan</h2>
-                <p>Experience stunning coral and fish ecosystem</p>
-                <button class="booking-btn">Booking Trip →</button>
-            </div>
-        </div>
-
-        <div class="card" style="background-image: url('canoe3.jpg');">
-            <div class="price-tag">Rp 1 Million</div>
-            <div class="card-content">
-                <h2>Canoe at the River Side of Bintan</h2>
-                <p>Experience stunning coral and fish ecosystem</p>
-                <button class="booking-btn">Booking Trip →</button>
-            </div>
-        </div> -->
     </div>
 </template>
 
 <style scoped lang="postcss">
 /* Card Container */
 .cards-container {
-    display: flex;
+    @apply grid grid-cols-2;
     gap: 20px;
-    overflow-x: auto;
 }
 
 /* Card Styling */
 .card {
-    position: relative;
-    width: 250px;
-    height: 500px;
+    height: 600px;
     border-radius: 20px;
-    overflow: hidden;
     background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    color: white;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    @apply relative flex flex-col justify-end text-custom-white overflow-hidden;
 }
 
-/* Dark Overlay */
-.card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+@screen md {
+    .cards-container {
+        @apply flex flex-row;
+    }
+
+    .card-mobile {
+        @apply hidden;
+    }
+    
+    .card-desktop {
+        @apply static flex;
+    }
 }
+
+.card-mobile {
+    @apply flex;
+}
+
+.card-desktop {
+    @apply hidden;
+}
+
+/*
+    .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+    }
+*/
 
 /* Card Content */
 .card-content {
-    position: relative;
-    padding: 20px;
-    z-index: 2;
+    position: static;
+    padding: 0 35px 25px;
 }
 
 /* Card Heading */
 h2 {
-    font-size: 20px;
+    @apply text-3xl;
     margin: 0;
 }
 
 /* Card Description */
 p {
-    font-size: 14px;
+    @apply text-sm;
     opacity: 0.8;
 }
 
 /* Price Tag */
 .price-tag {
-    position: absolute;
+    @apply absolute bg-custom-white text-custom-black text-xs py-2 px-4;
     top: 10px;
     right: 10px;
-    background: white;
-    color: black;
-    padding: 5px 10px;
     border-radius: 15px;
-    font-size: 12px;
-    font-weight: bold;
     z-index: 2;
 }
 
 /* Booking Button */
 .booking-btn {
-    background: white;
-    color: black;
-    border: none;
+    @apply w-full bg-custom-white text-custom-black border-0 cursor-pointer mt-8 p-6 text-base;
     padding: 10px 15px;
     border-radius: 30px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
     transition: background 0.3s ease;
 }
 

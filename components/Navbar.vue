@@ -1,3 +1,22 @@
+<script setup lang="ts">
+import { defineEmits } from 'vue'
+
+const emits = defineEmits(['signUp', 'login', 'book'])
+
+const signUpHandler = () => {
+    emits('signUp')
+}
+
+const bookYourTripNowHandler = () => {
+    emits('book')
+}
+
+const loginHandler = () => {
+    emits('login')
+}
+
+</script>
+
 <template>
     <nav>
         <div class="desktop-navbar">
@@ -70,7 +89,7 @@
     }
 
     .top-navbar {
-        @apply flex justify-end items-center gap-6 text-sm text-cblack font-medium;
+        @apply flex justify-end items-center gap-6 text-sm text-custom-black font-medium;
     }
 
     .middle-navbar {
@@ -98,7 +117,7 @@
     }
 
     .bottom-navbar {
-        @apply flex items-center justify-between my-6 text-sm text-cblack font-medium;
+        @apply flex items-center justify-between my-6 text-sm text-custom-black font-medium;
     }
 
     .bottom-navbar__nav {

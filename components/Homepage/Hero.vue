@@ -27,19 +27,19 @@
     }
 
     .hero-content__heading {
-        @apply text-6xl font-medium text-cwhite w-full;
+        @apply text-6xl font-medium text-custom-white w-full;
     }
 
     .hero-content__button {
-        @apply flex items-center justify-start bg-cwhite py-6 pl-2 pr-6 rounded-[30px] gap-4 w-fit;
+        @apply flex items-center justify-start bg-custom-white py-6 pl-2 pr-6 rounded-[30px] gap-4 w-fit;
 
         p {
-            @apply text-cblack;
+            @apply text-custom-black;
         }
     }
 
     .hero-content__button-icon {
-        @apply bg-cblack text-cwhite p-[10px] rounded-full;
+        @apply bg-custom-black text-custom-white p-[10px] rounded-full;
         svg {            
             width: 18px;
             height: 18px;

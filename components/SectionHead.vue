@@ -35,7 +35,7 @@ defineProps({
 
 <style scoped lang="postcss">
     .section-title {
-        @apply text-base text-cblack font-normal tracking-[-5%]; 
+        @apply text-base text-custom-black font-normal tracking-[-5%]; 
     }
 
     .section-desc {

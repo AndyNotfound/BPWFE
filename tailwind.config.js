@@ -49,11 +49,11 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        cblue: "#023E8A",
-        cblack: "#212227",
-        cwhite: "#FBFFFE",
-        cgwhite: "#FBFBFF",
-        cgray: "#E8E9ED"
+        'custom-blue': "#023E8A",
+        'custom-black': "#212227",
+        'custom-white': "#FBFFFE",
+        'custom-gray-white': "#FBFBFF",
+        'custom-gray': "#E8E9ED"
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
@@ -87,5 +87,12 @@ module.exports = {
       },
     },
   },
-  plugins: [animate],
+  plugins: [
+    require('flowbite/plugin'),
+    animate
+  ],
+  content: [
+    // other files...
+    "./node_modules/flowbite/**/*.{js,ts}"
+  ],
 }

@@ -85,7 +85,7 @@
   }
 
   .link {
-    @apply text-cblue;
+    @apply text-custom-blue;
   }
 }
 
