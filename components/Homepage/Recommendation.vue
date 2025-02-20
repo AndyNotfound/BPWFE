@@ -81,7 +81,7 @@ const props = defineProps<{
 <style scoped lang="postcss">
 /* Card Container */
 .cards-container {
-    @apply grid grid-cols-1;
+    @apply flex flex-col;
     gap: 20px;
 }
 
