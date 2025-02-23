@@ -85,7 +85,7 @@
     }
 
     .card {
-        height: 600px;
+        height: 400px;
         border-radius: 20px;
         background-size: cover;
         background-position: center;
@@ -146,6 +146,9 @@
     }
 
     @screen md {
+        .card {
+            height: 600px;
+        }
         .card-mobile {
             @apply hidden;
         }
