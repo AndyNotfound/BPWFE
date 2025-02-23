@@ -126,7 +126,7 @@
     }
 
     .booking-btn {
-        @apply w-full bg-custom-white text-custom-black border-0 cursor-pointer mt-8 py-6 px-8 text-base;
+        @apply w-[200px] bg-custom-white text-custom-black border-0 cursor-pointer mt-8 py-6 px-8 text-base;
         border-radius: 30px;
         transition: background 0.3s ease;
 
@@ -149,12 +149,17 @@
         .card {
             height: 600px;
         }
+
         .card-mobile {
             @apply hidden;
         }
         
         .card-desktop {
             @apply relative flex;
+        }
+
+        .booking-btn {
+            @apply w-full;
         }
     }
 
