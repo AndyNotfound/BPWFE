@@ -1,24 +1,23 @@
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
+    import { defineProps, defineEmits } from 'vue';
 
-const emit = defineEmits(['click'])
+    const emit = defineEmits(['click'])
 
-const onClickHandler = () => {
-    emit('click')
-}
-
-defineProps({
-    buttonClass: String,
-    iconPosition: {
-        type: String,
-        default: 'none'
-    },
-    type: {
-        type: String,
-        default: 'primary'
+    const onClickHandler = () => {
+        emit('click')
     }
-})
 
+    defineProps({
+        buttonClass: String,
+        iconPosition: {
+            type: String,
+            default: 'none'
+        },
+        type: {
+            type: String,
+            default: 'primary'
+        }
+    })
 </script>
 
 <template>

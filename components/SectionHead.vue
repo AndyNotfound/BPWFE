@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
+    import { defineProps } from 'vue';
 
-defineProps({
-    title: String,
-    desc: String,
-    containerClass: String,
-    titleClass: String,
-    descClass: String,
-})
+    defineProps({
+        title: String,
+        desc: String,
+        containerClass: String,
+        titleClass: String,
+        descClass: String,
+    })
 </script>
 
 <template>

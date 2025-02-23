@@ -1,38 +1,36 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import { useIsMobile } from '@/composables/useIsMobile';
-import { useFlowbite } from '@/composables/useFlowBite';
-import { initFlowbite } from 'flowbite';
+    import { onMounted } from 'vue';
+    import { useIsMobile } from '@/composables/useIsMobile';
+    import { useFlowbite } from '@/composables/useFlowBite';
+    import { initFlowbite } from 'flowbite';
 
-const signUpHandler = () => {
-}
+    const signUpHandler = () => {
+    }
 
-const bookYourTripNowHandler = () => {
-}
+    const bookYourTripNowHandler = () => {
+    }
 
-const loginHandler = () => {
-}
+    const loginHandler = () => {
+    }
 
-
-
-onMounted(() => {
-    useFlowbite(() => {
-        initFlowbite();
+    onMounted(() => {
+        useFlowbite(() => {
+            initFlowbite();
+        })
     })
-})
 
-const { isMobile } = useIsMobile();
+    const { isMobile } = useIsMobile();
 </script>
 
 <template>
     <div>
-        <MobileNavbar 
+        <navbar-mobile 
             v-if="isMobile"
             @login="loginHandler"
             @book="bookYourTripNowHandler"
             @sing-up="signUpHandler"
         />
-        <Navbar 
+        <navbar 
             v-else 
             @login="loginHandler"
             @book="bookYourTripNowHandler"

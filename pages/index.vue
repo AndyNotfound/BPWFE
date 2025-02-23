@@ -1,36 +1,36 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
+    import { reactive } from 'vue';
 
-const recommendations = reactive([
-    {
-        image: '/images/snorkling.png',
-        price: 'Rp 1 Million',
-        title: 'Snorkeling and Diving at Kepri Coral',
-        slug: 'snorkeling-and-diving-at-kepri-coral',
-        desc: 'Experience stunning coral and fish ecosystem'
-    },
-    {
-        image: '/images/snorkling.png',
-        price: 'Rp 1 Million',
-        title: 'Snorkeling and Diving at Kepri Coral',
-        slug: 'snorkeling-and-diving-at-kepri-coral',
-        desc: 'Experience stunning coral and fish ecosystem'
-    },
-    {
-        image: '/images/snorkling.png',
-        price: 'Rp 1 Million',
-        title: 'Snorkeling and Diving at Kepri Coral',
-        slug: 'snorkeling-and-diving-at-kepri-coral',
-        desc: 'Experience stunning coral and fish ecosystem'
-    },
-    {
-        image: '/images/snorkling.png',
-        price: 'Rp 1 Million',
-        title: 'Snorkeling and Diving at Kepri Coral',
-        slug: 'snorkeling-and-diving-at-kepri-coral',
-        desc: 'Experience stunning coral and fish ecosystem'
-    },
-])
+    const recommendations = reactive([
+        {
+            image: '/images/snorkling.png',
+            price: 'Rp 1 Million',
+            title: 'Snorkeling and Diving at Kepri Coral',
+            slug: 'snorkeling-and-diving-at-kepri-coral',
+            desc: 'Experience stunning coral and fish ecosystem'
+        },
+        {
+            image: '/images/canoe.png',
+            price: 'Rp 1 Million',
+            title: 'Canoe at the River Side of Bintan',
+            slug: 'snorkeling-and-diving-at-kepri-coral',
+            desc: 'Experience stunning coral and fish ecosystem'
+        },
+        {
+            image: '/images/beach.png',
+            price: 'Rp 1 Million',
+            title: 'Snorkeling and Diving at Kepri Coral',
+            slug: 'snorkeling-and-diving-at-kepri-coral',
+            desc: 'Experience stunning coral and fish ecosystem'
+        },
+        {
+            image: '/images/trees.png',
+            price: 'Rp 1 Million',
+            title: 'Snorkeling and Diving at Kepri Coral',
+            slug: 'snorkeling-and-diving-at-kepri-coral',
+            desc: 'Experience stunning coral and fish ecosystem'
+        },
+    ])
 </script>
 
 <template>
@@ -43,7 +43,7 @@ const recommendations = reactive([
                 desc-class="w-full md:w-[521px]"
                 container-class="mt-28 mb-6"
             />
-            <homepage-recommendation
+            <card-potrait
                 :recommendations="recommendations"
             />
         </section>
@@ -52,8 +52,17 @@ const recommendations = reactive([
                 :title="'Events for the season'"
                 :desc="'Recommended Place to Go this Summer for 2025!'"
                 desc-class="w-full md:w-[521px]"
-                container-class="mt-28"
+                container-class="mt-28 mb-6"
             />
+            <Carousel class="w-full">
+                <CarouselContent>
+                    <CarouselItem>
+                        <card-landscape />
+                    </CarouselItem>
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+            </Carousel>
         </section>
     </div>
 </template>

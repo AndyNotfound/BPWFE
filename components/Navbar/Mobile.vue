@@ -1,20 +1,19 @@
 <script setup lang="ts">
-import { defineEmits } from 'vue'
+    import { defineEmits } from 'vue'
 
-const emits = defineEmits(['signUp', 'login', 'book'])
+    const emits = defineEmits(['signUp', 'login', 'book'])
 
-const signUpHandler = () => {
-    emits('signUp')
-}
+    const signUpHandler = () => {
+        emits('signUp')
+    }
 
-const bookYourTripNowHandler = () => {
-    emits('book')
-}
+    const bookYourTripNowHandler = () => {
+        emits('book')
+    }
 
-const loginHandler = () => {
-    emits('login')
-}
-
+    const loginHandler = () => {
+        emits('login')
+    }
 </script>
 
 <template>
