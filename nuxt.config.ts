@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     "shadcn-nuxt", 
     "@nuxtjs/tailwindcss", 
     "nuxt-lucide-icons",
-    "@nuxtjs/google-fonts"
+    "@nuxtjs/google-fonts",
+    '@nuxt/eslint'
   ],
   shadcn: {
     prefix: '',
@@ -21,5 +22,5 @@ export default defineNuxtConfig({
       Poppins: [300, 400, 500, 600, 700]
     },
     display: 'swap'
-  }
+  },
 })

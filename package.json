@@ -7,9 +7,12 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@nuxt/eslint": "1.1.0",
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/google-fonts": "3.2.0",
     "@vueuse/core": "^12.7.0",
@@ -17,6 +20,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-vue": "^8.5.2",
+    "eslint": "^9.0.0",
     "flowbite": "^3.1.2",
     "lucide-vue-next": "^0.475.0",
     "nuxt": "^3.15.4",
@@ -24,6 +28,7 @@
     "radix-vue": "^1.9.14",
     "reka-ui": "^2.0.0",
     "shadcn-nuxt": "0.11.3",
+    "swiper": "^11.2.4",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "vue": "latest",
