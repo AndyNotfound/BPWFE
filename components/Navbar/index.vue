@@ -1,4 +1,4 @@
-<script lang="ts">
+<script setup lang="ts">
 /*
     import { defineEmits } from 'vue'
 
@@ -75,7 +75,7 @@ nav {
 }
 
 .desktop-navbar {
-    @apply hidden md: block;
+    @apply hidden md:block;
 }
 
 .top {

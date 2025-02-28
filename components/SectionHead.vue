@@ -1,4 +1,4 @@
-<script lang="ts">
+<script setup lang="ts">
 import {
     defineProps
 } from 'vue';
@@ -6,7 +6,7 @@ import type {
     SectionHeadProps
 } from '~/types/props';
 
-defineProps < SectionHeadProps > ();
+defineProps<SectionHeadProps>();
 </script>
 
 <template>

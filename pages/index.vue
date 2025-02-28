@@ -1,4 +1,4 @@
-<script lang="ts">
+<script setup lang="ts">
 import {
     ref
 } from 'vue';
@@ -145,7 +145,7 @@ const goToSlide = (index: SwiperType) => {
 }
 
 .swiper-button {
-    @apply p-2 rounded-full bg-custom-white text-custom-black hover: bg-custom-black hover:text-custom-white;
+    @apply p-2 rounded-full bg-custom-white text-custom-black hover:bg-custom-black hover:text-custom-white;
     border: 1px solid black;
 }
 

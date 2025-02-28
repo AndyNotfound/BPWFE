@@ -1,4 +1,4 @@
-<script lang="ts">
+<script setup lang="ts">
 import {
     defineProps
 } from 'vue';
@@ -6,9 +6,9 @@ import type {
     RecommendCardProps
 } from '~/types/props';
 
-defineProps < {
+defineProps<{
     item: RecommendCardProps;
-} > ();
+}>();
 </script>
 
 <template>

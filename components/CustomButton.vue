@@ -1,4 +1,4 @@
-<script lang="ts">
+<script setup lang="ts">
 import {
     defineProps,
     defineEmits
@@ -13,7 +13,7 @@ const onClickHandler = () => {
     emit('click')
 }
 
-defineProps < CustomButtonProps > ()
+defineProps<CustomButtonProps> ()
 </script>
 
 <template>

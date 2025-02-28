@@ -29,10 +29,10 @@
 }
 
 .title {
-    @apply text-2xl md: text-6xl font-semibold leading-snug;
+    @apply text-2xl md:text-6xl font-semibold leading-snug;
 }
 
 .cta-button {
-    @apply border-0 mt-4 py-6 px-14 bg-custom-white text-custom-black text-base rounded-full font-medium hover: bg-gray-200 transition;
+    @apply border-0 mt-4 py-6 px-14 bg-custom-white text-custom-black text-base rounded-full font-medium hover:bg-gray-200 transition;
 }
 </style>
