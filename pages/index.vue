@@ -100,7 +100,32 @@ const goToSlide = (index: SwiperType) => {
 
         <section class="section relative">
             <section-head title="Customer Reviews" desc="See What Our Fellow Travelers Have to Say About Us" desc-class="w-full md:w-[521px] text-center" container-class="mt-28 mb-6 flex flex-col items-center" />
-            <swiper :slides-per-view="1.8" :space-between="50" :navigation="false" :pagination="{ clickable: true, el: '.custom-pagination' }" :modules="modules" @slide-change="onSlideChange" @swiper="onSwiperReviewInit">
+            <swiper 
+                :slides-per-view="1" 
+                :space-between="10" 
+                :navigation="false" 
+                :pagination="{ 
+                    clickable: true, 
+                    el: '.custom-pagination' 
+                }" 
+                :modules="modules" 
+                @slide-change="onSlideChange" 
+                @swiper="onSwiperReviewInit" 
+                :breakpoints="{
+                    '640': {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    '768': {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    '1024': {
+                        slidesPerView: 1.8,
+                        spaceBetween: 20,
+                    }
+                }"
+            >
                 <swiper-slide v-for="(item, index) in reviews" :key="index">
                     <card-review :item="item" />
                 </swiper-slide>

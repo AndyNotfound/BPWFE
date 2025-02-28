@@ -15,7 +15,7 @@
 
 <style lang="postcss" scoped>
 .footer-hero {
-    @apply mt-24 relative w-full h-[1000px] flex items-center justify-center bg-cover bg-center;
+    @apply mt-24 relative w-full h-[500px] flex items-center justify-center bg-cover bg-center;
     background-image: url('/images/footer.png');
     /* Update path */
 }
@@ -29,10 +29,17 @@
 }
 
 .title {
-    @apply text-2xl md:text-6xl font-semibold leading-snug;
+    @apply text-4xl md:text-6xl font-semibold leading-snug;
+    line-height: 1.2;
 }
 
 .cta-button {
     @apply border-0 mt-4 py-6 px-14 bg-custom-white text-custom-black text-base rounded-full font-medium hover:bg-gray-200 transition;
+}
+
+@screen md {
+    .footer-hero {
+        @apply h-[1000px];
+    }
 }
 </style>

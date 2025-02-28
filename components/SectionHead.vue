@@ -35,6 +35,6 @@ defineProps<SectionHeadProps>();
 }
 
 .section-desc {
-    @apply text-3xl tracking-[-5%] mt-2;
+    @apply text-2xl md:text-3xl tracking-[-5%] mt-2;
 }
 </style>

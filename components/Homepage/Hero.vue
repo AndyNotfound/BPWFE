@@ -2,7 +2,7 @@
 <div class="hero">
     <div class="hero-content custom-container">
         <h1 class="hero-content__heading">
-            Where You Get Trapped in the <br>Beauty of the World and <br>Unforgettable Happiness!
+            Where You Get Trapped in the Beauty of the World and Unforgettable Happiness!
         </h1>
         <Button class="hero-content__button">
             <div class="hero-content__button-icon">
@@ -18,16 +18,17 @@
 <style lang="postcss" scoped>
 .hero {
     background-image: url('/images/travel.jpg');
-    height: 800px;
-    @apply w-full object-cover bg-no-repeat bg-cover;
+    height: 600px;
+    @apply w-full object-cover bg-no-repeat bg-cover flex items-center;
 }
 
 .hero-content {
-    @apply flex flex-col gap-[50px] pt-40;
+    @apply flex flex-col gap-[50px];
 }
 
 .hero-content__heading {
-    @apply text-6xl font-semibold leading-snug text-custom-white w-full;
+    @apply text-4xl font-semibold leading-snug text-custom-white w-full;
+    line-height: 1.2;
 }
 
 .hero-content__button {
@@ -52,7 +53,9 @@
         height: 870px;
     }
 
-    .hero-content__heading {}
+    .hero-content__heading { 
+        @apply text-6xl;
+    }
 }
 
 @screen lg {
@@ -61,7 +64,7 @@
     }
 
     .hero-content {
-        @apply pt-48;
+        @apply !pt-[40px];
     }
 }
 </style>

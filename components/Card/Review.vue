@@ -33,19 +33,19 @@ defineProps<{
 
 <style lang="postcss" scoped>
 .card {
-    @apply flex w-full gap-2;
+    @apply flex flex-col w-full gap-2;
 }
 
 .card-image {
-    @apply w-[45%] rounded;
+    @apply w-full rounded;
 
     img {
-        @apply w-full h-[250px] object-cover rounded-xl;
+        @apply w-full h-[150px] object-cover rounded-xl;
     }
 }
 
 .card-review {
-    @apply w-[55%] border-custom-gray rounded-xl p-4 border-[1px];
+    @apply w-full border-custom-gray rounded-xl p-4 border-[1px];
 }
 
 .card-review-author {
@@ -58,7 +58,19 @@ defineProps<{
 
 @screen md {
     .card {
-        @apply w-[800px];
+        @apply w-full flex-row;
+    }
+
+    .card-image {
+        @apply w-[45%];
+
+        img {
+            @apply h-[250px];
+        }
+    }
+
+    .card-review {
+        @apply w-[55%];
     }
 }
 </style>
