@@ -24,15 +24,15 @@
         <div class="top">
             <div class="top-navbar custom-container">
                 <p>
-                    <nuxt-link to="/login" class="link">
+                    <nuxt-link to="/" class="link">
                         Login
                     </nuxt-link>
                     or
-                    <nuxt-link to="/signup" class="link">
+                    <nuxt-link to="/" class="link">
                         Sign Up
                     </nuxt-link>
                 </p>
-                <nuxt-link to="/book" class="link">
+                <nuxt-link to="/" class="link">
                     Book Your Trip Now
                 </nuxt-link>
             </div>
