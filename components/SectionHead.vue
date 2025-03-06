@@ -20,12 +20,12 @@ defineProps<SectionHeadProps>();
         ].join(' ')">
         {{ title }}
     </p>
-    <h3 :class="[
+    <h2 :class="[
             'section-desc',
             descClass
         ].join(' ')">
         {{ desc }}
-    </h3>
+    </h2>
 </div>
 </template>
 

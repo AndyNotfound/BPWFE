@@ -103,7 +103,7 @@ nav {
 }
 
 .middle-navbar__search-input {
-    @apply text-base !py-6 !px-8 rounded-3xl;
+    @apply text-base !py-6 !pl-6 !pr-8 rounded-3xl placeholder:text-sm focus:outline-none;
 }
 
 .middle-navbar__search-icon {

@@ -14,13 +14,17 @@ import type {
     Swiper as SwiperType
 } from 'swiper/types';
 import {
-    activities,
     reviews,
     recommendations
 } from '~/public/data';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { fetchTravelPackages } from '~/composables/fetchData'
+
+const packageData = reactive<Record<string, any>>({
+    activities: []
+})
 
 const modules = [Pagination, Navigation];
 const swiperRecommend = ref < SwiperType | null > (null);
@@ -62,91 +66,115 @@ const goToSlide = (index: SwiperType) => {
         swiperReview.value.swiper.slideTo(index);
     }
 };
+
+const getTravelPackages = async () => {
+    const { data } = await fetchTravelPackages({})
+
+    packageData.activities = data
+}
+
+const activities = computed(() =>
+    (packageData.activities || []).map(activity => ({
+        image: activity.thumbnail,
+        title: activity.name,
+        desc: activity.brief,
+        price: activity.price,
+        slug: activity.slug
+    })),
+)
+
+onMounted(() => {
+    getTravelPackages()
+})
 </script>
 
 <template>
-<div>
+    <div>
 
-    <homepage-hero />
+        <homepage-hero />
 
-    <div class="main custom-container">
+        <div class="main custom-container">
 
-        <section class="section">
-            <section-head title="Tour Recommendation" desc="Our Specially Picked Tour Package Recommendation" desc-class="w-full md:w-[521px]" container-class="mt-28 mb-6" />
-            <div class="cards-container">
-                <card-potrait v-for="(item, index) in activities" :key="index" :item="{...item, index}" />
-            </div>
-        </section>
+            <section class="section">
+                <section-head title="Tour Recommendation" desc="Our Specially Picked Tour Package Recommendation" desc-class="w-full md:w-[521px]" container-class="mt-28 mb-6" />
+                <div class="cards-container">
+                    <card-potrait 
+                        v-for="(item, index) in activities" 
+                        :key="index" 
+                        :item="{...item, index}" 
+                    />
+                </div>
+            </section>
 
-        <section class="section relative">
-            <section-head title="Events for the season" desc="Recommended Place to Go this Summer for 2025!" desc-class="w-full md:w-[521px]" container-class="mt-28 mb-6" />
+            <section class="section relative">
+                <section-head title="Events for the season" desc="Recommended Place to Go this Summer for 2025!" desc-class="w-full md:w-[521px]" container-class="mt-28 mb-6" />
 
-            <div class="md:relative">
-                <swiper class="w-full relative md:static" :slides-per-view="1" :space-between="50" :modules="modules" :navigation="false" @swiper="onSwiperRecommendInit">
-                    <swiper-slide v-for="(item, index) in recommendations" :key="index">
-                        <card-landscape :item="item" />
+                <div class="md:relative">
+                    <swiper class="w-full relative md:static" :slides-per-view="1" :space-between="50" :modules="modules" :navigation="false" @swiper="onSwiperRecommendInit">
+                        <swiper-slide v-for="(item, index) in recommendations" :key="index">
+                            <card-landscape :item="item" />
+                        </swiper-slide>
+                    </swiper>
+                </div>
+                <div class="swiper-button-container">
+                    <button class="swiper-button prev-button" @click="prevSlideRecommend">
+                        <LucideChevronLeft />
+                    </button>
+                    <button class="swiper-button next-button" @click="nextSlideRecommend">
+                        <LucideChevronRight />
+                    </button>
+                </div>
+            </section>
+
+            <section class="section relative">
+                <section-head title="Customer Reviews" desc="See What Our Fellow Travelers Have to Say About Us" desc-class="w-full md:w-[521px] text-center" container-class="mt-28 mb-6 flex flex-col items-center" />
+                <swiper 
+                    :slides-per-view="1" 
+                    :space-between="10" 
+                    :navigation="false" 
+                    :pagination="{ 
+                        clickable: true, 
+                        el: '.custom-pagination' 
+                    }" 
+                    :modules="modules" 
+                    @slide-change="onSlideChange" 
+                    @swiper="onSwiperReviewInit" 
+                    :breakpoints="{
+                        '640': {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },
+                        '768': {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },
+                        '1024': {
+                            slidesPerView: 1.8,
+                            spaceBetween: 20,
+                        }
+                    }"
+                >
+                    <swiper-slide v-for="(item, index) in reviews" :key="index">
+                        <card-review :item="item" />
                     </swiper-slide>
                 </swiper>
-            </div>
-            <div class="swiper-button-container">
-                <button class="swiper-button prev-button" @click="prevSlideRecommend">
-                    <LucideChevronLeft />
-                </button>
-                <button class="swiper-button next-button" @click="nextSlideRecommend">
-                    <LucideChevronRight />
-                </button>
-            </div>
-        </section>
-
-        <section class="section relative">
-            <section-head title="Customer Reviews" desc="See What Our Fellow Travelers Have to Say About Us" desc-class="w-full md:w-[521px] text-center" container-class="mt-28 mb-6 flex flex-col items-center" />
-            <swiper 
-                :slides-per-view="1" 
-                :space-between="10" 
-                :navigation="false" 
-                :pagination="{ 
-                    clickable: true, 
-                    el: '.custom-pagination' 
-                }" 
-                :modules="modules" 
-                @slide-change="onSlideChange" 
-                @swiper="onSwiperReviewInit" 
-                :breakpoints="{
-                    '640': {
-                        slidesPerView: 1,
-                        spaceBetween: 10,
-                    },
-                    '768': {
-                        slidesPerView: 1,
-                        spaceBetween: 10,
-                    },
-                    '1024': {
-                        slidesPerView: 1.8,
-                        spaceBetween: 20,
-                    }
-                }"
-            >
-                <swiper-slide v-for="(item, index) in reviews" :key="index">
-                    <card-review :item="item" />
-                </swiper-slide>
-            </swiper>
-            <div class="swiper-button-review">
-                <button class="swiper-button prev-button" @click="prevSlideReview">
-                    <LucideChevronLeft />
-                </button>
-                <div class="custom-pagination !w-fit flex items-center">
-                    <span v-for="(_, index) in slides" :key="index" :class="[{ active: currentIndex === index }]" @click="goToSlide(index)">
-                        {{ index + 1 }}
-                    </span>
+                <div class="swiper-button-review">
+                    <button class="swiper-button prev-button" @click="prevSlideReview">
+                        <LucideChevronLeft />
+                    </button>
+                    <div class="custom-pagination !w-fit flex items-center">
+                        <span v-for="(_, index) in slides" :key="index" :class="[{ active: currentIndex === index }]" @click="goToSlide(index)">
+                            {{ index + 1 }}
+                        </span>
+                    </div>
+                    <button class="swiper-button next-button" @click="nextSlideReview">
+                        <LucideChevronRight />
+                    </button>
                 </div>
-                <button class="swiper-button next-button" @click="nextSlideReview">
-                    <LucideChevronRight />
-                </button>
-            </div>
-        </section>
+            </section>
 
+        </div>
     </div>
-</div>
 </template>
 
 <style lang="postcss" scoped>

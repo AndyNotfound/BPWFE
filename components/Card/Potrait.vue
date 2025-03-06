@@ -5,16 +5,25 @@ import {
 import type {
     ActivityCardProps
 } from '~/types/props';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 
 defineProps<{
     item: ActivityCardProps
 }>();
+
+const onBookingHandler = (slug: string) => {
+    router.push({
+        path: `/detail/${slug}`
+    })
+}
 </script>
 
 <template>
 <!-- Mobile -->
 <div class="card card-mobile" :style="{
-        backgroundImage: `url('${item.image}')`,
+        backgroundImage: `url('http://localhost:1337${item.image}')`,
         width: '100%'
     }">
     <div class="price-tag">
@@ -27,7 +36,7 @@ defineProps<{
         <p>
             {{ item.desc }}
         </p>
-        <custom-button class="booking-btn" icon-position="left">
+        <custom-button class="booking-btn" icon-position="left" @click="onBookingHandler(item.slug)">
             <p>Booking Trip</p>
             <LucideMoveRight />
         </custom-button>
@@ -35,20 +44,20 @@ defineProps<{
 </div>
 <!-- Desktop -->
 <div class="card card-desktop" :style="{
-        backgroundImage: `url('${item.image}')`,
+        backgroundImage: `url('http://localhost:1337${item.image}')`,
         width: item.index === 0 ? '33.14%' : '22.96%'
     }">
     <div class="price-tag">
         {{ item.price }}
     </div>
     <div class="card-content">
-        <h2>
+        <h3>
             {{ item.title }}
-        </h2>
+        </h3>
         <p>
             {{ item.desc }}
         </p>
-        <custom-button class="booking-btn" icon-position="left">
+        <custom-button class="booking-btn" icon-position="left" @click="onBookingHandler(item.slug)">
             <p>Booking Trip</p>
             <LucideMoveRight />
         </custom-button>
@@ -78,13 +87,13 @@ defineProps<{
     position: static;
     padding: 0 35px 25px;
 
-    h2 {
-        @apply text-3xl;
+    h3 {
+        @apply text-2xl md:text-3xl;
         margin: 0;
     }
 
     p {
-        @apply text-sm;
+        @apply text-sm md:text-base;
         opacity: 0.8;
     }
 }
