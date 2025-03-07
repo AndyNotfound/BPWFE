@@ -75,7 +75,7 @@ const getTravelPackages = async () => {
 
 const activities = computed(() =>
     (packageData.activities || []).map(activity => ({
-        image: activity.thumbnail,
+        image: `https://strapi.batamdpesonawisata.com${activity.thumbnail}`,
         title: activity.name,
         desc: activity.brief,
         price: activity.price,

@@ -23,7 +23,7 @@ const onBookingHandler = (slug: string) => {
 <template>
 <!-- Mobile -->
 <div class="card card-mobile" :style="{
-        backgroundImage: `url('https://strapi.batamdpesonawisata.com${item.image}')`,
+        backgroundImage: `url('${item.image}')`,
         width: '100%'
     }">
     <div class="price-tag">
@@ -44,7 +44,7 @@ const onBookingHandler = (slug: string) => {
 </div>
 <!-- Desktop -->
 <div class="card card-desktop" :style="{
-        backgroundImage: `url('http://localhost:1337${item.image}')`,
+        backgroundImage: `url('${item.image}')`,
         width: item.index === 0 ? '33.14%' : '22.96%'
     }">
     <div class="price-tag">
