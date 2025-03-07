@@ -23,7 +23,7 @@ const onBookingHandler = (slug: string) => {
 <template>
 <!-- Mobile -->
 <div class="card card-mobile" :style="{
-        backgroundImage: `url('http://localhost:1337${item.image}')`,
+        backgroundImage: `url('https://strapi.batamdpesonawisata.com${item.image}')`,
         width: '100%'
     }">
     <div class="price-tag">
