@@ -21,48 +21,48 @@ const onBookingHandler = (slug: string) => {
 </script>
 
 <template>
-<!-- Mobile -->
-<div class="card card-mobile" :style="{
-        backgroundImage: `url('${item.image}')`,
-        width: '100%'
-    }">
-    <div class="price-tag">
-        {{ item.price }}
+    <!-- Mobile -->
+    <div class="card card-mobile" :style="{
+            backgroundImage: `url('${item.image}')`,
+            width: '100%'
+        }">
+        <div class="price-tag">
+            {{ item.price }}
+        </div>
+        <div class="card-content">
+            <h2>
+                {{ item.title }}
+            </h2>
+            <p>
+                {{ item.desc }}
+            </p>
+            <custom-button class="booking-btn" icon-position="left" @click="onBookingHandler(item.slug)">
+                <p>Booking Trip</p>
+                <LucideMoveRight />
+            </custom-button>
+        </div>
     </div>
-    <div class="card-content">
-        <h2>
-            {{ item.title }}
-        </h2>
-        <p>
-            {{ item.desc }}
-        </p>
-        <custom-button class="booking-btn" icon-position="left" @click="onBookingHandler(item.slug)">
-            <p>Booking Trip</p>
-            <LucideMoveRight />
-        </custom-button>
+    <!-- Desktop -->
+    <div class="card card-desktop" :style="{
+            backgroundImage: `url('${item.image}')`,
+            width: item.index === 0 ? '33.14%' : '22.96%'
+        }">
+        <div class="price-tag">
+            {{ item.price }}
+        </div>
+        <div class="card-content">
+            <h3>
+                {{ item.title }}
+            </h3>
+            <p>
+                {{ item.desc }}
+            </p>
+            <custom-button class="booking-btn" icon-position="left" @click="onBookingHandler(item.slug)">
+                <p>Booking Trip</p>
+                <LucideMoveRight />
+            </custom-button>
+        </div>
     </div>
-</div>
-<!-- Desktop -->
-<div class="card card-desktop" :style="{
-        backgroundImage: `url('${item.image}')`,
-        width: item.index === 0 ? '33.14%' : '22.96%'
-    }">
-    <div class="price-tag">
-        {{ item.price }}
-    </div>
-    <div class="card-content">
-        <h3>
-            {{ item.title }}
-        </h3>
-        <p>
-            {{ item.desc }}
-        </p>
-        <custom-button class="booking-btn" icon-position="left" @click="onBookingHandler(item.slug)">
-            <p>Booking Trip</p>
-            <LucideMoveRight />
-        </custom-button>
-    </div>
-</div>
 </template>
 
 <style lang="postcss" scoped>

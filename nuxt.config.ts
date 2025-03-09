@@ -23,4 +23,10 @@ export default defineNuxtConfig({
     },
     display: 'swap'
   },
+  head: {
+    link: [
+      // Link to the favicon.ico file
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ]
+  }
 })

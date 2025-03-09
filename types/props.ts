@@ -1,5 +1,5 @@
 interface ReviewCardProps {
-    image: string, 
+    // image: string | any, 
     name: string, 
     origin: string, 
     comment: string

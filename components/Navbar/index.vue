@@ -19,54 +19,54 @@
 </script>
 
 <template>
-<nav>
-    <div class="desktop-navbar">
-        <div class="top">
-            <div class="top-navbar custom-container">
-                <p>
+    <nav>
+        <div class="desktop-navbar">
+            <div class="top">
+                <div class="top-navbar custom-container">
+                    <p>
+                        <nuxt-link to="/" class="link">
+                            Login
+                        </nuxt-link>
+                        or
+                        <nuxt-link to="/" class="link">
+                            Sign Up
+                        </nuxt-link>
+                    </p>
                     <nuxt-link to="/" class="link">
-                        Login
+                        Book Your Trip Now
                     </nuxt-link>
-                    or
-                    <nuxt-link to="/" class="link">
-                        Sign Up
+                </div>
+            </div>
+            <div class="middle-navbar custom-container">
+                <div class="middle-navbar__img">
+                    <img src="/images/logo.png" alt="">
+                </div>
+                <div class="middle-navbar__search">
+                    <Input type="email" placeholder="Where to or what trip?" class="middle-navbar__search-input" />
+                    <LucideSearch class="middle-navbar__search-icon" />
+                </div>
+            </div>
+            <div class="bottom-navbar custom-container">
+                <div class="bottom-navbar__nav">
+                    <nuxt-link to="/">
+                        Tour Recommendation
                     </nuxt-link>
-                </p>
-                <nuxt-link to="/" class="link">
-                    Book Your Trip Now
-                </nuxt-link>
+                    <nuxt-link to="/">
+                        Seasonal Events
+                    </nuxt-link>
+                    <nuxt-link to="/">
+                        Traveler Review
+                    </nuxt-link>
+                    <nuxt-link to="/">
+                        About Us
+                    </nuxt-link>
+                </div>
+                <div class="bottom-navbar__costumer">
+                    <p>Costumer Service: 08210909032</p>
+                </div>
             </div>
         </div>
-        <div class="middle-navbar custom-container">
-            <div class="middle-navbar__img">
-                <img src="/images/logo.png" alt="">
-            </div>
-            <div class="middle-navbar__search">
-                <Input type="email" placeholder="Where to or what trip?" class="middle-navbar__search-input" />
-                <LucideSearch class="middle-navbar__search-icon" />
-            </div>
-        </div>
-        <div class="bottom-navbar custom-container">
-            <div class="bottom-navbar__nav">
-                <nuxt-link to="/">
-                    Tour Recommendation
-                </nuxt-link>
-                <nuxt-link to="/">
-                    Seasonal Events
-                </nuxt-link>
-                <nuxt-link to="/">
-                    Traveler Review
-                </nuxt-link>
-                <nuxt-link to="/">
-                    About Us
-                </nuxt-link>
-            </div>
-            <div class="bottom-navbar__costumer">
-                <p>Costumer Service: 08210909032</p>
-            </div>
-        </div>
-    </div>
-</nav>
+    </nav>
 </template>
 
 <style lang="postcss" scoped>

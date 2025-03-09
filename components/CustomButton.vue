@@ -17,18 +17,18 @@ defineProps<CustomButtonProps> ()
 </script>
 
 <template>
-<Button :class="[
-        iconPosition === 'left' && 'button-icon__left',
-        iconPosition === 'right' && 'button-icon__right',
-        iconPosition === 'none' && 'button-icon__none',
-        'button-icon',
-        buttonClass,
-        type === 'sec' && 'button-sec',
-        type === 'outline' && 'button-outline',
-        type === 'bare' && 'button-bare',
-    ].join(' ')" @click="onClickHandler">
-    <slot />
-</Button>
+    <Button :class="[
+            iconPosition === 'left' && 'button-icon__left',
+            iconPosition === 'right' && 'button-icon__right',
+            iconPosition === 'none' && 'button-icon__none',
+            'button-icon',
+            buttonClass,
+            type === 'sec' && 'button-sec',
+            type === 'outline' && 'button-outline',
+            type === 'bare' && 'button-bare',
+        ].join(' ')" @click="onClickHandler">
+        <slot />
+    </Button>
 </template>
 
 <style lang="postcss" scoped>

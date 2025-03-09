@@ -1,18 +1,18 @@
 <template>
-<div class="hero">
-    <div class="hero-content custom-container">
-        <h1 class="hero-content__heading">
-            Where You Get Trapped in the Beauty of the World and Unforgettable Happiness!
-        </h1>
-        <Button class="hero-content__button">
-            <div class="hero-content__button-icon">
-                <LucideMapPinCheck />
-            </div>
-            <p>Booking Now</p>
-        </Button>
-    </div>
+    <div class="hero">
+        <div class="hero-content custom-container">
+            <h1 class="hero-content__heading">
+                Where You Get Trapped in the Beauty of the World and Unforgettable Happiness!
+            </h1>
+            <Button class="hero-content__button">
+                <div class="hero-content__button-icon">
+                    <LucideMapPinCheck />
+                </div>
+                <p>Booking Now</p>
+            </Button>
+        </div>
 
-</div>
+    </div>
 </template>
 
 <style lang="postcss" scoped>

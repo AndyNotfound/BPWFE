@@ -12,22 +12,22 @@ defineProps<{
 </script>
 
 <template>
-<div class="card">
-    <div class="card-layer">
-        <div class="card-content">
-            <h2>
-                {{ item.title }}
-            </h2>
-            <p>
-                {{ item.desc }}
-            </p>
-            <custom-button class="booking-btn" icon-position="left">
-                <p>Booking Trip</p>
-                <LucideMoveRight />
-            </custom-button>
+    <div class="card">
+        <div class="card-layer">
+            <div class="card-content">
+                <h2>
+                    {{ item.title }}
+                </h2>
+                <p>
+                    {{ item.desc }}
+                </p>
+                <custom-button class="booking-btn" icon-position="left">
+                    <p>Booking Trip</p>
+                    <LucideMoveRight />
+                </custom-button>
+            </div>
         </div>
     </div>
-</div>
 </template>
 
 <style lang="postcss" scoped>

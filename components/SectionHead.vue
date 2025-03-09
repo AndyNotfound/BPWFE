@@ -10,23 +10,23 @@ defineProps<SectionHeadProps>();
 </script>
 
 <template>
-<div :class="[
-        'section',
-        containerClass
-    ].join(' ')">
-    <p :class="[
-            'section-title',
-            titleClass
+    <div :class="[
+            'section',
+            containerClass
         ].join(' ')">
-        {{ title }}
-    </p>
-    <h2 :class="[
-            'section-desc',
-            descClass
-        ].join(' ')">
-        {{ desc }}
-    </h2>
-</div>
+        <p :class="[
+                'section-title',
+                titleClass
+            ].join(' ')">
+            {{ title }}
+        </p>
+        <h2 :class="[
+                'section-desc',
+                descClass
+            ].join(' ')">
+            {{ desc }}
+        </h2>
+    </div>
 </template>
 
 <style lang="postcss" scoped>

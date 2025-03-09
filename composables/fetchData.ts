@@ -2,7 +2,7 @@ import { useNuxtApp } from "#app";
 import { reactive } from "vue";
 
 export const useApiRequest = async ({ url= '', method = "GET", params = {}, body = {} }) => {
-    const { $axios } = useNuxtApp();
+    const { $axios } = useNuxtApp() as any;
     
     const state = reactive<Record<string, any>>({
         data: null,
@@ -40,17 +40,22 @@ export const useApiRequest = async ({ url= '', method = "GET", params = {}, body
 };
 
 const fetchTravelPackages = async ({ params = {}, body = {} }) => {
-    const res = await useApiRequest({
-        url: "/api/travel-packages/homepage",
+    return await useApiRequest({
+        url: "/api/travel-packages/recommendation",
         params,
         body
     });
-
-    console.log('fetch: data: ', res)
-
-    return res;
 };
+
+const fetchTravelReviews = async ({ params = {}, body = {} }) => { 
+    return await useApiRequest({
+        url: "/api/reviews",
+        params,
+        body
+    })
+}
 
 export { 
     fetchTravelPackages,
+    fetchTravelReviews
 };
